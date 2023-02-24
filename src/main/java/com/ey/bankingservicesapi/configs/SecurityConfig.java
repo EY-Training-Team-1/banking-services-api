@@ -17,7 +17,6 @@ import java.util.Arrays;
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    //Simulate all of our user data.
     String[][] creds = {
             {"ryan", "pass1"},
             {"sierra", "pass2"},
