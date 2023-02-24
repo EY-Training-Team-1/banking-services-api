@@ -10,6 +10,7 @@ public class BankingServicesApiApplication {
 
 	public static void main(String[] args) {
 		LombokTest pr = new LombokTest("sssss");
+
 		System.out.printf("pr+"+pr.getPCode());
 		SpringApplication.run(BankingServicesApiApplication.class, args);
 		LoggerTest.writeLogs();
