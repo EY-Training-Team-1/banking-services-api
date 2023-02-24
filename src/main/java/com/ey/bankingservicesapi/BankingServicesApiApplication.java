@@ -5,7 +5,7 @@ import com.ey.bankingservicesapi.models.LombokTest;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = "com.ey")
 public class BankingServicesApiApplication {
 
 	public static void main(String[] args) {
