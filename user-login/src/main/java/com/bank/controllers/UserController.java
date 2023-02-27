@@ -1,13 +1,16 @@
-package com.revature.controllers;
+package main.java.com.bank.controllers;
 
+
+import main.java.com.bank.repositories.UserRepo;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("login")
 public class UserController {
-    private UserRepository userDao;
-    private PasswordEncoder passwordEncoder;
+    private UserRepo userDao;
+//    private PasswordEncoder passwordEncoder;
 
-    public UserController(UserRepository userDao, PasswordEncoder passwordEncoder) {
+    public UserController(UserRepo userDao, PasswordEncoder passwordEncoder) {
         this.userDao = userDao;
         this.passwordEncoder = passwordEncoder;
     }

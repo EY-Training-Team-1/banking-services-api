@@ -1,13 +1,13 @@
-insert into topics values
+insert into users values
 (default, 'Java'),
 (default, 'SQL');
 
-INSERT INTO flashcards VALUES
+INSERT INTO users VALUES
 (
 	default,
-	'What is the root interface of the Collections API?',
-	'Iterable is at the top of the Collection Heirarchy, but many consider the Collection interface to be the root.',
-	'Collections Root Interface',
+	'Derek Berkley',
+	'derek.berkley@ey.com',
+	'password',
 	1,
 	1
 ),

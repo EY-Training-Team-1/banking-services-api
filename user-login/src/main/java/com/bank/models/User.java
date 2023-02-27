@@ -1,6 +1,8 @@
-package com.revature.models;
+package main.java.com.bank.models;
 
 import javax.persistence.*;
+import java.util.List;
+
 @Entity
 @Table(name = "users")
 public class User {
@@ -18,15 +20,19 @@ public class User {
     @Column
     private String password;
 
-    @OneToMany
-    private List<Account> bankAccounts;
+//    @OneToMany
+//    private List<Account> bankAccounts;
 
     public User(Long id, String name, String email, String password, List<Account> bankAccounts) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.password = password;
-        this.bankAccounts = bankAccounts;
+//        this.bankAccounts = bankAccounts;
+    }
+
+    public User() {
+
     }
 
     public Long getId() {
@@ -68,4 +74,5 @@ public class User {
     public void setBankAccounts(List<Account> bankAccounts) {
         this.bankAccounts = bankAccounts;
     }
+}
 
