@@ -2,6 +2,7 @@ package com.ey.bankingservicesapi.models;
 
 import lombok.Builder;
 import lombok.extern.slf4j.Slf4j;
+import lombok.*;
 import javax.persistence.*;
 import java.util.List;
 import java.util.Objects;
@@ -13,7 +14,7 @@ import java.util.Objects;
 @AllArgsConstructor
 @NoArgsConstructor
 @Slf4j
-public class Users {
+public class Bank {
 
     @Id //makes this a Primary Key
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,9 +29,14 @@ public class Users {
     @Column(columnDefinition = "default 100")
     private int balance;
 
-    @ManyToOne(optional=false)
-    @JoinColumn(name="u_id", nullable=false, updatable=false)
-    private User getUser(){  return user; }
+
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private Users user;
+
+
+
 
 
 
