@@ -27,7 +27,7 @@ public class Users {
     @Column(nullable = false)
     private String email;
 
-    @Column(nullable = false)
+    @Column(name = "password", nullable = false)
     private String pass;
 
     @ManyToMany(fetch = FetchType.EAGER)
@@ -41,8 +41,7 @@ public class Users {
         return "Users{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", email='" + email + '\'' +
-                ", banks=" + banks +
+                ", email='" + email +
                 '}';
     }
 }

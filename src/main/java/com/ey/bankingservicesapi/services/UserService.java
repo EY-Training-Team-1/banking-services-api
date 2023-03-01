@@ -1,4 +1,4 @@
-package services;
+package com.ey.bankingservicesapi.services;
 
 import com.ey.bankingservicesapi.models.UserForm;
 import com.ey.bankingservicesapi.models.Users;
@@ -6,8 +6,8 @@ import com.ey.bankingservicesapi.models.Bank;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
-import repositories.BankRepo;
-import repositories.UserRepo;
+import com.ey.bankingservicesapi.repositories.BankRepo;
+import com.ey.bankingservicesapi.repositories.UserRepo;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,7 +31,10 @@ public class UserService {
     }
 
     public List<Users> getAllUsers() {
-        return (List<Users>) u.findAll();
+        List<Users> users = new ArrayList<Users>();
+         users = (List<Users>) u.findAll();
+
+         return users;
     }
 
     public Users addUser(Users user){
@@ -95,7 +98,14 @@ public class UserService {
         form.setId(user.getId());
         form.setName(user.getName());
         form.setEmail(user.getEmail());
-        form.setPass(user.getPass());
+
+        StringBuilder pass = new StringBuilder();
+
+        for(int i =0; i<user.getPass().length(); i++){
+            pass.append("*");
+        }
+
+        form.setPass(pass.toString());
 
         if(user.getBanks() != null) {
             List<String> list = new ArrayList<>();

@@ -1,4 +1,4 @@
-package repositories;
+package com.ey.bankingservicesapi.repositories;
 
 import com.ey.bankingservicesapi.models.Users;
 import org.springframework.data.repository.CrudRepository;

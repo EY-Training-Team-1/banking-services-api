@@ -22,16 +22,16 @@ public class Bank {
     private int id;
 
     //The status of the account EX: active or not active
-    @Column(nullable = false)
+    @Column(name = "status", nullable = false)
     private AccountStatus status;
 
     //The account type EX: Checking or Savings
-    @Column(nullable = false)
+    @Column(name = "account_type", nullable = false)
     private AccountType type;
 
 
     //The account balance
-    @Column(columnDefinition = "default 100")
+    @Column(columnDefinition = "numeric(12,2)")
     private double balance;
 
 

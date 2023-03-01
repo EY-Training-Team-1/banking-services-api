@@ -8,7 +8,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication(scanBasePackages = "com.ey.bankingservicesapi")
 @EntityScan("com.ey.bankingservicesapi.models")
-@EnableJpaRepositories("com.revature.repositories")
+@EnableJpaRepositories("com.ey.bankingservicesapi.repositories")
 public class BankingServicesApiApplication {
 
 	public static void main(String[] args) {

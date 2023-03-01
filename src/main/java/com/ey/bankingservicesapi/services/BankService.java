@@ -1,18 +1,17 @@
-package services;
+package com.ey.bankingservicesapi.services;
 
 import com.ey.bankingservicesapi.models.BankForm;
-import com.ey.bankingservicesapi.models.UserForm;
 import com.ey.bankingservicesapi.models.Users;
 import com.ey.bankingservicesapi.models.Bank;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
-import repositories.BankRepo;
-import repositories.UserRepo;
+import com.ey.bankingservicesapi.repositories.BankRepo;
+import com.ey.bankingservicesapi.repositories.UserRepo;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
+import java.util.Optional;
+
 @Service
 public class BankService {
 
@@ -28,7 +27,9 @@ public class BankService {
 
 
     public Bank getBank(int id) {
-       return b.findById(id).get();
+       //return b.findById(id).get();
+        Optional<Bank> actorOptional = b.findById(id);
+        return actorOptional.orElseGet(Bank::new);
     }
 
     public List<Bank> getAllBank() {
