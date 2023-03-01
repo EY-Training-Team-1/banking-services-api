@@ -1,5 +1,6 @@
 package services;
 
+import com.ey.bankingservicesapi.models.UserForm;
 import com.ey.bankingservicesapi.models.Users;
 import com.ey.bankingservicesapi.models.Bank;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Service;
 import repositories.BankRepo;
 import repositories.UserRepo;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -59,46 +61,54 @@ public class UserService {
     }
 
 
-    public User convertToUser(ActorForm actorForm) {
+    public Users convertToUser(UserForm form) {
 
-        Actor a = new Actor();
+        Users user = new Users();
 
-        a.setId(actorForm.getId());
-        a.setName(actorForm.getName());
-        a.setAge(actorForm.getAge());
-        a.setWorth(actorForm.getWorth());
+        user.setId(form.getId());
+        user.setName(form.getName());
+        user.setEmail(form.getEmail());
+        user.setPass(form.getPass());
 
-        if(actorForm.getMovies() == null || actorForm.getMovies().size() == 0) {
-            a.setMovies(new ArrayList<>());
+
+        if(form.getBanks() == null || form.getBanks().size() == 0) {
+            user.setBanks(new ArrayList<>());
         } else {
-            List<Movie> allMovies = (List<Movie>) mr.findAll();
-            a.setMovies(allMovies.stream()
-                    .filter(x -> actorForm.getMovies().contains((x.getTitle())))
-                    .collect(Collectors.toList()));
+            List<Bank> allBanks = (List<Bank>) b.findAll();
+            List<Bank> list = new ArrayList<>();
+            for (Bank x : allBanks) {
+                if (form.getBanks().contains((x.getId()))) {
+                    list.add(x);
+                }
+            }
+            user.setBanks(list);
         }
 
-        return a;
+        return user;
     }
 
 
-    public ActorForm convertToActorForm(Actor a) {
+    public UserForm convertToUserForm(Users user) {
 
-        ActorForm actorForm = new ActorForm();
+        UserForm form = new UserForm();
 
-        actorForm.setId(a.getId());
-        actorForm.setName(a.getName());
-        actorForm.setAge(a.getAge());
-        actorForm.setWorth(a.getWorth());
+        form.setId(user.getId());
+        form.setName(user.getName());
+        form.setEmail(user.getEmail());
+        form.setPass(user.getPass());
 
-        if(a.getMovies() != null) {
-            actorForm.setMovies(a.getMovies().stream()
-                    .map(m -> "/movies/" + m.getId())
-                    .collect(Collectors.toList()));
+        if(user.getBanks() != null) {
+            List<String> list = new ArrayList<>();
+            for (Bank m : user.getBanks()) {
+                String s = "/banks/" + m.getId();
+                list.add(s);
+            }
+            form.setBanks(list);
         } else {
-            actorForm.setMovies(new ArrayList<>());
+            form.setBanks(new ArrayList<>());
         }
 
-        return actorForm;
+        return form;
     }
 
 }

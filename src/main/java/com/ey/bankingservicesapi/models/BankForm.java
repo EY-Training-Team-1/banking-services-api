@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 
+import java.util.List;
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -16,8 +18,22 @@ public class BankForm {
 
     private int id;
 
-    private String status;
+    private AccountStatus status;
 
-    private String type;
+    private AccountType type;
 
+    private double balance;
+
+    private List<Users> users;
+
+    @Override
+    public String toString() {
+        return "BankForm{" +
+                "id=" + id +
+                ", status=" + status +
+                ", type=" + type +
+                ", balance=" + balance +
+                ", users=" + users +
+                '}';
+    }
 }

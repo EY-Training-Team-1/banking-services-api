@@ -3,8 +3,12 @@ package com.ey.bankingservicesapi;
 import com.ey.bankingservicesapi.models.LoggerTest;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
-@SpringBootApplication(scanBasePackages = "com.ey")
+@SpringBootApplication(scanBasePackages = "com.ey.bankingservicesapi")
+@EntityScan("com.ey.bankingservicesapi.models")
+@EnableJpaRepositories("com.revature.repositories")
 public class BankingServicesApiApplication {
 
 	public static void main(String[] args) {

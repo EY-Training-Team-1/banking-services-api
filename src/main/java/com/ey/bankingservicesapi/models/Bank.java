@@ -23,16 +23,16 @@ public class Bank {
 
     //The status of the account EX: active or not active
     @Column(nullable = false)
-    private String status;
+    private AccountStatus status;
 
     //The account type EX: Checking or Savings
     @Column(nullable = false)
-    private String type;
+    private AccountType type;
 
 
     //The account balance
     @Column(columnDefinition = "default 100")
-    private int balance;
+    private double balance;
 
 
 
@@ -47,8 +47,8 @@ public class Bank {
     public String toString() {
         return "Bank{" +
                 "id=" + id +
-                ", status='" + status + '\'' +
-                ", type='" + type + '\'' +
+                ", status=" + status +
+                ", type=" + type +
                 ", balance=" + balance +
                 ", users=" + users +
                 '}';

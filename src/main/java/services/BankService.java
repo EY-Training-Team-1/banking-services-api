@@ -1,5 +1,7 @@
 package services;
 
+import com.ey.bankingservicesapi.models.BankForm;
+import com.ey.bankingservicesapi.models.UserForm;
 import com.ey.bankingservicesapi.models.Users;
 import com.ey.bankingservicesapi.models.Bank;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +10,7 @@ import org.springframework.stereotype.Service;
 import repositories.BankRepo;
 import repositories.UserRepo;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 @Service
@@ -41,6 +44,60 @@ public class BankService {
             return false;
         }
 
+    }
+
+    public Bank convertToBank(BankForm form) {
+
+        Bank bank = new Bank();
+
+        bank.setId(form.getId());
+        bank.setStatus(form.getStatus());
+        bank.setType(form.getType());
+        if(form.getBalance()<=0){
+            bank.setBalance(100);
+        }else{
+            bank.setBalance(form.getBalance());
+        }
+
+
+        if(form.getUsers() == null || form.getUsers().size() == 0) {
+            bank.setUsers(new ArrayList<>());
+        } else {
+            List<Users> allUsers = (List<Users>) u.findAll();
+            List<Users> list = new ArrayList<>();
+            for (Users x : allUsers) {
+                if (form.getUsers().contains((x.getId()))) {
+                    list.add(x);
+                }
+            }
+            bank.setUsers(list);
+        }
+
+        return bank;
+    }
+
+
+    public BankForm convertToBankForm(Bank bank) {
+
+        BankForm form = new BankForm();
+
+        form.setId(bank.getId());
+        form.setStatus(bank.getStatus());
+        form.setType(bank.getType());
+        form.setBalance(bank.getBalance());
+
+
+        if(bank.getUsers() != null) {
+            List<Users> list = new ArrayList<>();
+            for (Users m : bank.getUsers()) {
+                list.add(m);
+            }
+            form.setUsers(list);
+        } else {
+            form.setUsers(new ArrayList<>());
+        }
+
+        return form;
     }
 
 
