@@ -26,18 +26,31 @@ public class Bank {
     private String status;
 
     //The account type EX: Checking or Savings
+    @Column(nullable = false)
+    private String type;
+
+
+    //The account balance
     @Column(columnDefinition = "default 100")
     private int balance;
 
 
 
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private Users user;
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "linked",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "bank_id"))
+    private List<Users> users;
 
 
-
-
-
-
+    @Override
+    public String toString() {
+        return "Bank{" +
+                "id=" + id +
+                ", status='" + status + '\'' +
+                ", type='" + type + '\'' +
+                ", balance=" + balance +
+                ", users=" + users +
+                '}';
+    }
 }

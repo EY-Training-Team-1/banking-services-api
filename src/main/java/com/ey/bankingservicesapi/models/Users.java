@@ -1,11 +1,11 @@
 package com.ey.bankingservicesapi.models;
 
-import lombok.Builder;
+
 import lombok.extern.slf4j.Slf4j;
 import lombok.*;
 import javax.persistence.*;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
+
 
 @Entity
 @Table(name= "users")
@@ -30,12 +30,19 @@ public class Users {
     @Column(nullable = false)
     private String pass;
 
-    @java.lang.Override
-    public java.lang.String toString() {
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "linked",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "bank_id"))
+    private List<Bank> banks;
+
+    @Override
+    public String toString() {
         return "Users{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", email='" + email + '\'' +
+                ", banks=" + banks +
                 '}';
     }
 }
