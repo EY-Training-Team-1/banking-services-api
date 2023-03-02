@@ -3,6 +3,7 @@ package com.ey.models;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Entity
 @Table(name = "users")
@@ -19,8 +20,13 @@ public class User {
 
     private String password;
 
-    @OneToMany (mappedBy = "user", cascade = CascadeType.ALL)
-    private List<Account> accounts = new ArrayList<>();
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "user_accounts",
+            joinColumns = { @JoinColumn(name = "user_id") },
+            inverseJoinColumns = { @JoinColumn(name = "account_id") }
+    )
+    private List<Account> accounts;
 
     public User(int id, String name, String email, String password, List<Account> accounts) {
         this.id = id;
@@ -30,11 +36,13 @@ public class User {
         this.accounts = accounts;
     }
 
-    public User() {    }
+    public User(Optional<User> user) {
+    }
 
     public int getId() {
         return id;
     }
+    public User() {    }
 
     public void setId(int id) {
         this.id = id;

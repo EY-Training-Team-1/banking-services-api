@@ -1,6 +1,7 @@
 package com.ey.models;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "accounts")
@@ -11,14 +12,10 @@ public class Account {
     @Column(name = "acct_id")
     private int id;
 
-    private String name;
+    private String accountName;
 
-    public Account(int id, String name) {
-        this.id = id;
-        this.name = name;
-    }
-
-    public Account() {   }
+    @ManyToMany(mappedBy = "accounts")
+    private List<User> users;
 
     public int getId() {
         return id;
@@ -28,11 +25,19 @@ public class Account {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getAccountName() {
+        return accountName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setAccountName(String accountName) {
+        this.accountName = accountName;
+    }
+
+    public List<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<User> users) {
+        this.users = users;
     }
 }
