@@ -4,18 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ea4dd638-07e4-4e23-912d-2322a6243f09" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/account/src/main/java/com/ey/clients/UserClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/account/src/main/java/com/ey/clients/UserClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account/src/main/java/com/ey/controllers/AccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/account/src/main/java/com/ey/controllers/AccountController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account/src/main/java/com/ey/models/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/account/src/main/java/com/ey/models/Account.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account/src/main/java/com/ey/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/account/src/main/java/com/ey/models/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account/src/main/java/com/ey/repositories/AccountRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/account/src/main/java/com/ey/repositories/AccountRepo.java" afterDir="false" />
+    <list default="true" id="4dff54ed-b2e0-4141-81f8-7ded6317953b" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/user-access/src/main/java/com/ey/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-access/src/main/java/com/ey/config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-access/src/main/java/com/ey/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-access/src/main/java/com/ey/controllers/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-access/src/main/java/com/ey/models/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-access/src/main/java/com/ey/models/Account.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-access/src/main/java/com/ey/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-access/src/main/java/com/ey/models/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-access/src/main/java/com/ey/models/UserWithRoles.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-access/src/main/java/com/ey/models/UserWithRoles.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/user-access/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/user-access/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,36 +38,46 @@
         <option name="useMavenConfig" value="true" />
       </MavenGeneralSettings>
     </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="workspaceImportEnabled" value="true" />
+      </MavenImportingSettings>
+    </option>
   </component>
   <component name="ProjectId" id="2M9crIdtygQJfVeV3FaF24aLQEw" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/AL569PE/IdeaProjects/banking-services-api&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;copyright&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;ed233d1992bdb987687a92d6e4d78d9d&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/AL569PE/IdeaProjects/banking-services-api",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "copyright",
+    "spring.configuration.checksum": "ed233d1992bdb987687a92d6e4d78d9d",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql",
+      "postgresql"
     ],
-    &quot;com.intellij.ide.scratch.LRUPopupBuilder$1/SQL Dialect&quot;: [
-      &quot;MySQL&quot;
+    "com.intellij.ide.scratch.LRUPopupBuilder$1/SQL Dialect": [
+      "MySQL"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\AL569PE\IdeaProjects\banking-services-api" />
@@ -84,10 +85,44 @@
       <recent name="C:\Users\AL569PE\IdeaProjects\banking-services-api\api-gateway" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Spring Boot.UserAccessApplication">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="banking-services-api" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="banking-services-api" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AccountApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="account" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.ey.app.AccountApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="BankingServicesApiApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="banking-services-api" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.ey.bankingservicesapi.BankingServicesApiApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GatewayServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="gateway-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.ey.gatewayservice.GatewayServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserAccessApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="user-access" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.ey.app.UserAccessApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
