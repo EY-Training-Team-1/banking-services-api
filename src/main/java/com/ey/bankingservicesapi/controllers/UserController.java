@@ -2,6 +2,7 @@ package com.ey.bankingservicesapi.controllers;
 
 import com.ey.bankingservicesapi.models.UserForm;
 import com.ey.bankingservicesapi.models.Users;
+import com.ey.bankingservicesapi.services.BankService;
 import com.ey.bankingservicesapi.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -17,6 +18,9 @@ public class UserController {
 
 
     UserService u;
+
+    @Autowired
+    BankService b;
 
     @Autowired
     public UserController(UserService service){
@@ -55,13 +59,27 @@ public class UserController {
     }
 
     @PutMapping("/users/{u_id}/{b_id}")
-    public ResponseEntity<UserForm> updateUser(@PathVariable int u_id, @PathVariable int b_id) {
+    public ResponseEntity<UserForm> linkUser(@PathVariable int u_id, @PathVariable int b_id) {
+        Users user= new Users();
 
-       Users user = u.linkBank(u_id,b_id);
+       user = u.getUser(u_id);
+
+       if (user.getBanks().contains(b.getBank(b_id))){
+           user=u.unlinkBank(u_id,b_id);
+       } else{
+         user = u.linkBank(u_id,b_id);
+       }
+
+
+
 
 
         return new ResponseEntity<>(u.convertToUserForm(user), HttpStatus.ACCEPTED);
     }
+
+
+
+
 
 
 

@@ -98,7 +98,6 @@ public class BankService {
                 String s = "/Users/" + m.getId();
                 list.add(s);
             }
-            System.out.println(bank.getUsers());
             form.setUsers(list);
         } else {
             form.setUsers(new ArrayList<>());
