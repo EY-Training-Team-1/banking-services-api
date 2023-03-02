@@ -35,8 +35,17 @@ System.out.println();
             case 3:
                 double amount;
                 System.out.println("Enter account you want to transfer from: ");
+                accountName = scanner.nextLong():
                 System.out.println("Enter account you want to transfer to: ");
+                accountName = scanner.nextLong():
                 System.out.println("Enter the amount you want to transfer: ");
+                amount = scanner.nextLong():
+
+// needs finishing to transfer between accounts and logging transactions
+                
+                
+                
+                
                 
                 
                 
