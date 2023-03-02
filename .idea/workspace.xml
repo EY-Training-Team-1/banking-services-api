@@ -4,7 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ea4dd638-07e4-4e23-912d-2322a6243f09" name="Changes" comment="" />
+    <list default="true" id="ea4dd638-07e4-4e23-912d-2322a6243f09" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/account/src/main/java/com/ey/clients/UserClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/account/src/main/java/com/ey/clients/UserClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account/src/main/java/com/ey/controllers/AccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/account/src/main/java/com/ey/controllers/AccountController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account/src/main/java/com/ey/models/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/account/src/main/java/com/ey/models/Account.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account/src/main/java/com/ey/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/account/src/main/java/com/ey/models/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account/src/main/java/com/ey/repositories/AccountRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/account/src/main/java/com/ey/repositories/AccountRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-access/src/main/java/com/ey/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-access/src/main/java/com/ey/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-access/src/main/java/com/ey/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-access/src/main/java/com/ey/controllers/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-access/src/main/java/com/ey/models/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-access/src/main/java/com/ey/models/Account.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-access/src/main/java/com/ey/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-access/src/main/java/com/ey/models/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-access/src/main/java/com/ey/models/UserWithRoles.java" beforeDir="false" afterPath="$PROJECT_DIR$/user-access/src/main/java/com/ey/models/UserWithRoles.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/user-access/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/user-access/src/main/resources/application.properties" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -95,6 +107,7 @@
       <workItem from="1677701289525" duration="223000" />
       <workItem from="1677777309830" duration="169000" />
       <workItem from="1677777488671" duration="141000" />
+      <workItem from="1677777646849" duration="42000" />
     </task>
     <servers />
   </component>
