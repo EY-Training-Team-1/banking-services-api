@@ -38,7 +38,7 @@ public class UserService {
     }
 
     public Users addUser(Users user){
-        ;
+
 
         return u.save(user);
     }
@@ -78,13 +78,9 @@ public class UserService {
             user.setBanks(new ArrayList<>());
         } else {
             List<Bank> allBanks = (List<Bank>) b.findAll();
-            List<Bank> list = new ArrayList<>();
-            for (Bank x : allBanks) {
-                if (form.getBanks().contains((x.getId()))) {
-                    list.add(x);
-                }
-            }
-            user.setBanks(list);
+            user.setBanks(allBanks.stream()
+                    .filter(x -> form.getBanks().contains((x.getId())))
+                    .collect(Collectors.toList()));
         }
 
         return user;

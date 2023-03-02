@@ -11,6 +11,7 @@ import com.ey.bankingservicesapi.repositories.UserRepo;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class BankService {
@@ -27,13 +28,17 @@ public class BankService {
 
 
     public Bank getBank(int id) {
-       //return b.findById(id).get();
-        Optional<Bank> actorOptional = b.findById(id);
-        return actorOptional.orElseGet(Bank::new);
+       return b.findById(id).get();
+        //Optional<Bank> actorOptional = b.findById(id);
+        //return actorOptional.orElseGet(Bank::new);
     }
 
-    public List<Bank> getAllBank() {
-        return (List<Bank>) b.findAll();
+    public List<Bank> getAllBanks() {
+
+        List<Bank> banks = new ArrayList<Bank>();
+        banks = (List<Bank>) b.findAll();
+
+        return banks;
     }
 
     public boolean deleteBank(int id) {
@@ -87,18 +92,21 @@ public class BankService {
         form.setType(bank.getType());
         form.setBalance(bank.getBalance());
 
-
         if(bank.getUsers() != null) {
-            List<Users> list = new ArrayList<>();
+            List<String> list = new ArrayList<>();
             for (Users m : bank.getUsers()) {
-                list.add(m);
+                String s = "/Users/" + m.getId();
+                list.add(s);
             }
+            System.out.println(bank.getUsers());
             form.setUsers(list);
         } else {
             form.setUsers(new ArrayList<>());
         }
 
         return form;
+
+
     }
 
 

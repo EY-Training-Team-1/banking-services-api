@@ -36,10 +36,7 @@ public class Bank {
 
 
 
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "linked",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "bank_id"))
+    @ManyToMany(fetch = FetchType.EAGER, mappedBy = "banks")
     private List<Users> users;
 
 
@@ -50,7 +47,6 @@ public class Bank {
                 ", status=" + status +
                 ", type=" + type +
                 ", balance=" + balance +
-                ", users=" + users +
                 '}';
     }
 }

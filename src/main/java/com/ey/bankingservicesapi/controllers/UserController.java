@@ -6,9 +6,7 @@ import com.ey.bankingservicesapi.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -46,5 +44,12 @@ public class UserController {
             e.printStackTrace();
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
+    }
+
+    @PostMapping(value = "/users", consumes = "application/json", produces = "application/json")
+    public ResponseEntity<UserForm> addUser(@RequestBody UserForm form) {
+        Users user = u.convertToUser(form);
+        user = u.addUser(user);
+        return new ResponseEntity<>(u.convertToUserForm(user), HttpStatus.CREATED);
     }
 }

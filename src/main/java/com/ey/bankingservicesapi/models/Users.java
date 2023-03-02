@@ -36,6 +36,10 @@ public class Users {
             inverseJoinColumns = @JoinColumn(name = "bank_id"))
     private List<Bank> banks;
 
+
+
+
+
     @Override
     public String toString() {
         return "Users{" +

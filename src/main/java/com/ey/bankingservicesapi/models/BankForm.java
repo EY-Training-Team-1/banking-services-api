@@ -24,7 +24,7 @@ public class BankForm {
 
     private double balance;
 
-    private List<Users> users;
+    private List<String> users;
 
     @Override
     public String toString() {
