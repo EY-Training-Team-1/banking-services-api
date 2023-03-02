@@ -6,6 +6,7 @@ import com.ey.bankingservicesapi.models.UserForm;
 import com.ey.bankingservicesapi.models.Users;
 import com.ey.bankingservicesapi.services.BankService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -52,6 +53,18 @@ public class BankController {
         Bank bank = b.convertToBank(form);
         bank = b.addBank(bank);
         return new ResponseEntity<>(b.convertToBankForm(bank), HttpStatus.CREATED);
+    }
+
+    @DeleteMapping("/banks/{id}")
+    public ResponseEntity<Boolean> deleteBank(@PathVariable int id) {
+
+        try {
+            boolean wasDeleted = b.deleteBank(id);
+            return new ResponseEntity<>(wasDeleted, (wasDeleted) ? HttpStatus.NO_CONTENT : HttpStatus.BAD_REQUEST);
+        } catch (EmptyResultDataAccessException e) {
+            System.out.println(e.getMessage());
+            return new ResponseEntity<>(HttpStatus.UNPROCESSABLE_ENTITY);
+        }
     }
 
 }

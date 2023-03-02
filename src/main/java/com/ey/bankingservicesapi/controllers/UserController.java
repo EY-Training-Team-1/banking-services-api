@@ -4,6 +4,7 @@ import com.ey.bankingservicesapi.models.UserForm;
 import com.ey.bankingservicesapi.models.Users;
 import com.ey.bankingservicesapi.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -51,5 +52,28 @@ public class UserController {
         Users user = u.convertToUser(form);
         user = u.addUser(user);
         return new ResponseEntity<>(u.convertToUserForm(user), HttpStatus.CREATED);
+    }
+
+    @PutMapping("/users/{u_id}/{b_id}")
+    public ResponseEntity<UserForm> updateUser(@PathVariable int u_id, @PathVariable int b_id) {
+
+       Users user = u.linkBank(u_id,b_id);
+
+
+        return new ResponseEntity<>(u.convertToUserForm(user), HttpStatus.ACCEPTED);
+    }
+
+
+
+    @DeleteMapping("/users/{id}")
+    public ResponseEntity<Boolean> deleteUser(@PathVariable int id) {
+
+        try {
+            boolean wasDeleted = u.deleteUser(id);
+            return new ResponseEntity<>(wasDeleted, (wasDeleted) ? HttpStatus.NO_CONTENT : HttpStatus.BAD_REQUEST);
+        } catch (EmptyResultDataAccessException e) {
+            System.out.println(e.getMessage());
+            return new ResponseEntity<>(HttpStatus.UNPROCESSABLE_ENTITY);
+        }
     }
 }

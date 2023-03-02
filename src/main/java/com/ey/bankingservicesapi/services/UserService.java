@@ -19,10 +19,13 @@ public class UserService {
     UserRepo u;
     BankRepo b;
 
+    BankService bs;
+
     @Autowired
-    UserService(UserRepo user, BankRepo bank){
+    UserService(UserRepo user, BankRepo bank, BankService service){
         this.u=user;
         this.b=bank;
+        this.bs=service;
     }
 
 
@@ -64,6 +67,27 @@ public class UserService {
     }
 
 
+    public Users linkBank(int u_id, int b_id){
+        Users user = getUser(u_id);
+        Bank bank = bs.getBank(b_id);
+
+        List<Bank> banks = user.getBanks();
+        banks.add(bank);
+
+        user.setBanks(banks);
+
+        List<Users> users = bank.getUsers();
+        users.add(user);
+
+        bank.setUsers(users);
+
+        u.save(user);
+        b.save(bank);
+
+
+
+        return user;
+    }
     public Users convertToUser(UserForm form) {
 
         Users user = new Users();
