@@ -1,3 +1,4 @@
+/*
 package com.ey.bankingservicesapi.controllers;
 
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,3 +20,4 @@ public class HomeController {
     }
 
 }
+*/

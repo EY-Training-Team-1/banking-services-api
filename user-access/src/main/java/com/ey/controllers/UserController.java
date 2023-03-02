@@ -1,9 +1,12 @@
 package com.ey.controllers;
 
+import com.ey.clients.BankAccountsClient;
 import com.ey.models.Account;
 import com.ey.models.User;
 import com.ey.repositories.UserRepo;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -14,8 +17,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
+@Slf4j
 @RestController
-@RequestMapping("users")
+@RequestMapping(value = "/users")
 public class UserController{
 
     @Autowired
@@ -24,6 +28,8 @@ public class UserController{
     private PasswordEncoder pe;
     @Autowired
     private AuthenticationManager authenticationManager;
+    @Autowired
+    private BankAccountsClient bankAccountsClient;
 
     public UserController(UserRepo ur, PasswordEncoder pe){
         this.ur = ur;
@@ -49,5 +55,15 @@ public class UserController{
     public ResponseEntity<?> deleteAccount(@RequestBody User user) {
         ur.delete(user);
         return ResponseEntity.ok("Account deleted successfully");
+    }
+
+    @PutMapping(value = "/dashboard/closeAccount")
+    public ResponseEntity<Boolean> closeAccount(@RequestParam Integer accNum){
+        return bankAccountsClient.closeAccount(accNum);
+    }
+
+    @GetMapping
+    public String home(){
+        return "Home";
     }
 }
