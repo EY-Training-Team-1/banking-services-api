@@ -41,3 +41,4 @@ Add 6-10 more User Stories
 - Application functionality should be demonstrated through primarily Postman API calls.
 - All code is either stored and maintained within a Repository such as GitHub.
 - Preferably, incorporates Kafka to handle inter-microservice communications.
+
