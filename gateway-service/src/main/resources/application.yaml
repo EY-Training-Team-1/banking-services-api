@@ -19,12 +19,12 @@ spring:
           predicates:
             - Path=/accounts/**
         # ===================
-        - id: users
-          uri: lb://users
+        - id: user-access
+          uri: lb://user-access
           predicates:
             - Path=/users/**
-        # ===================
-        - id: accounts
-          uri: lb://accounts
-          predicates:
-            - Path=/accounts/**
+#        # ===================
+#        - id: accounts
+#          uri: lb://accounts
+#          predicates:
+#            - Path=/accounts/**

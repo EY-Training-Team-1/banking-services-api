@@ -1,7 +1,9 @@
 package com.ey.bankaccounts.controllers;
 
+import com.ey.bankaccounts.clients.UserClient;
 import com.ey.bankaccounts.models.Bank;
 import com.ey.bankaccounts.models.OpenAccountForm;
+import com.ey.bankaccounts.models.User;
 import com.ey.bankaccounts.services.BankAccountsService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +16,8 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping(value = "/accounts")
 public class AccountsController {
     private BankAccountsService bs;
+
+    private UserClient userClient;
 
     @Autowired
     public AccountsController(BankAccountsService bs) {
@@ -42,5 +46,18 @@ public class AccountsController {
             log.debug("Exception occurred while closing Account:",e);
             return new ResponseEntity<>(HttpStatus.UNPROCESSABLE_ENTITY);
         }
+    }
+
+    @GetMapping("/users")
+    public ResponseEntity<User> getUserInfo(@RequestParam int id) {
+        User user = userClient.findById(id);
+
+        if ((user != null)) {
+            System.out.print("No user found");
+        } else {
+            System.out.print("user found");
+        }
+
+        return ResponseEntity.ok(user);
     }
 }
