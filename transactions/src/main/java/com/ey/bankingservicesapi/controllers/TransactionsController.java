@@ -56,8 +56,4 @@ public class TransactionsController {
         }
     }
 
-    @GetMapping(value = "/get")
-    public String findById() {
-        return "Home Controller";
-    }
 }

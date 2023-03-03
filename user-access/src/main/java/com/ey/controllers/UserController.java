@@ -2,10 +2,7 @@ package com.ey.controllers;
 
 import com.ey.clients.BankAccountsClient;
 import com.ey.clients.TransactionsClient;
-import com.ey.models.Account;
-import com.ey.models.Transactions;
-import com.ey.models.TransactionsForm;
-import com.ey.models.User;
+import com.ey.models.*;
 import com.ey.repositories.UserRepo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -71,6 +68,17 @@ public class UserController{
     public ResponseEntity<Transactions> withDraw(@RequestBody TransactionsForm tForm){
         return transactionsClient.withDraw(tForm);
     }
+
+    @PostMapping(value = "/dashboard/deposit")
+    public ResponseEntity<Transactions> deposit(@RequestBody TransactionsForm tForm){
+        return transactionsClient.deposit(tForm);
+    }
+
+    @PostMapping(value = "/dashboard/transfer")
+    public ResponseEntity<Transactions> transfer(@RequestBody TransferForm tForm){
+        return transactionsClient.transfer(tForm);
+    }
+
 
 
 
