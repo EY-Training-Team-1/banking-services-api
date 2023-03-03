@@ -50,4 +50,10 @@ public class UserController{
         ur.delete(user);
         return ResponseEntity.ok("Account deleted successfully");
     }
+
+    @GetMapping("/find")
+    public ResponseEntity<User> findById(@RequestParam int id) {
+        return ur.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("User not found with id " + id));
+    }
 }

@@ -19,6 +19,11 @@ public class AccountsController {
 
     private UserClient userClient;
 
+    public AccountsController(BankAccountsService bs, UserClient userClient) {
+        this.bs = bs;
+        this.userClient = userClient;
+    }
+
     @Autowired
     public AccountsController(BankAccountsService bs) {
         this.bs = bs;
