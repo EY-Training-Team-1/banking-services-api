@@ -1,7 +1,10 @@
 package com.ey.controllers;
 
 import com.ey.clients.BankAccountsClient;
+import com.ey.clients.TransactionsClient;
 import com.ey.models.Account;
+import com.ey.models.Transactions;
+import com.ey.models.TransactionsForm;
 import com.ey.models.User;
 import com.ey.repositories.UserRepo;
 import lombok.extern.slf4j.Slf4j;
@@ -26,10 +29,12 @@ public class UserController{
     private UserRepo ur;
     @Autowired
     private PasswordEncoder pe;
-    @Autowired
-    private AuthenticationManager authenticationManager;
+/*    @Autowired
+    private AuthenticationManager authenticationManager;*/
     @Autowired
     private BankAccountsClient bankAccountsClient;
+    @Autowired
+    private TransactionsClient transactionsClient;
 
     public UserController(UserRepo ur, PasswordEncoder pe){
         this.ur = ur;
@@ -45,9 +50,9 @@ public class UserController{
 
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody User user) {
-        Authentication authentication = new UsernamePasswordAuthenticationToken(user.getName(), user.getPassword());
+       /* Authentication authentication = new UsernamePasswordAuthenticationToken(user.getName(), user.getPassword());
         Authentication result = authenticationManager.authenticate(authentication);
-        SecurityContextHolder.getContext().setAuthentication(result);
+        SecurityContextHolder.getContext().setAuthentication(result);*/
         return ResponseEntity.ok("Login successful");
     }
 
@@ -61,6 +66,13 @@ public class UserController{
     public ResponseEntity<Boolean> closeAccount(@RequestParam Integer accNum){
         return bankAccountsClient.closeAccount(accNum);
     }
+
+    @PostMapping(value = "/dashboard/withdrawal")
+    public ResponseEntity<Transactions> withDraw(@RequestBody TransactionsForm tForm){
+        return transactionsClient.withDraw(tForm);
+    }
+
+
 
     @GetMapping
     public String home(){
